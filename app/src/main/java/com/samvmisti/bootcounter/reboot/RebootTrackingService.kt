@@ -37,10 +37,24 @@ class RebootTrackingService : Service() {
                 database.timestampDao().insert(TimestampEntity(millis = currentMillis))
             if (inserted != 0L) {
                 Log.d(TAG, "inserted value with id $inserted")
+                startNotificationsWorker(currentMillis)
                 stopService()
             }
         }
         return START_NOT_STICKY
+    }
+
+    private fun startNotificationsWorker(millis: Long) {
+        val inputData = Data.Builder()
+            .putLong(NotificationWorker.ARG_LAST_MILLIS, millis)
+            .build()
+        val workRequest = PeriodicWorkRequestBuilder<NotificationWorker>(
+            repeatInterval = 15, // 15 minutes
+            repeatIntervalTimeUnit = TimeUnit.MINUTES
+        ).setInputData(inputData).build()
+
+        WorkManager.getInstance(this).enqueue(workRequest)
+        Log.d(TAG, "NotificationWorker started")
     }
 
     private fun stopService() {

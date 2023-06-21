@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BootCounter</string>
+    <string name="device_was_rebooted">Last this device was rebooted</string>
+    <string name="channel_description">Channel for reboot info</string>
 </resources>
