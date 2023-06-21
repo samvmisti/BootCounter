@@ -48,6 +48,6 @@ class NotificationWorker(private val context: Context, workerParams: WorkerParam
     companion object {
         private const val CHANNEL_ID = "notification_channel_id"
         private const val NOTIFICATION_ID = 1
-        const val ARG_LAST_MILLIS = "com.example.tstsss.reboot.NotificationWorker.ARG_LAST_MILLIS"
+        const val ARG_LAST_MILLIS = "com.samvmisti.bootcounter.reboot.NotificationWorker.ARG_LAST_MILLIS"
     }
 }
