@@ -5,12 +5,10 @@ import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import androidx.work.WorkInfo
-import androidx.work.WorkManager
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import com.samvmisti.bootcounter.time.Time
 import com.samvmisti.bootcounter.R
+import com.samvmisti.bootcounter.time.Time
 
 class NotificationWorker(private val context: Context, workerParams: WorkerParameters) :
     Worker(context, workerParams) {
@@ -48,6 +46,7 @@ class NotificationWorker(private val context: Context, workerParams: WorkerParam
     companion object {
         private const val CHANNEL_ID = "notification_channel_id"
         private const val NOTIFICATION_ID = 1
-        const val ARG_LAST_MILLIS = "com.samvmisti.bootcounter.reboot.NotificationWorker.ARG_LAST_MILLIS"
+        const val ARG_LAST_MILLIS =
+            "com.samvmisti.bootcounter.reboot.NotificationWorker.ARG_LAST_MILLIS"
     }
 }

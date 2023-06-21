@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(
     private val database: MainDatabase
-): ViewModel() {
+) : ViewModel() {
     private val _uiState = MutableStateFlow(MainUiState())
     val uiState: StateFlow<MainUiState> = _uiState.asStateFlow()
 
