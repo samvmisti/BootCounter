@@ -1,4 +1,4 @@
-package com.samvmisti.bootcounter
+package com.samvmisti.bootcounter.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

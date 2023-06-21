@@ -9,6 +9,6 @@ import com.samvmisti.bootcounter.data.model.TimestampEntity
     entities = [TimestampEntity::class],
     version = 1
 )
-abstract class MainDatabase: RoomDatabase() {
+abstract class MainDatabase : RoomDatabase() {
     abstract fun timestampDao(): TimestampDao
 }

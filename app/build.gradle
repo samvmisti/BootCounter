@@ -69,6 +69,9 @@ dependencies {
     // worker to show notifications
     implementation "androidx.work:work-runtime:2.8.1"
 
+    // Koin for Android
+    implementation "io.insert-koin:koin-android:3.4.2"
+
     // Add the KSP dependencies
     implementation "com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8"
 }
