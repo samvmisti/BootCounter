@@ -3,4 +3,17 @@ plugins {
     id 'com.android.application' version '8.0.2' apply false
     id 'com.android.library' version '8.0.2' apply false
     id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
+    id 'com.google.devtools.ksp'  version '1.7.20-1.0.8' apply false
+}
+
+subprojects {
+    afterEvaluate{
+        tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
+            if (project.plugins.hasPlugin("com.android.application") || project.plugins.hasPlugin("com.android.library")) {
+                kotlinOptions.jvmTarget = android.compileOptions.sourceCompatibility
+            } else {
+                kotlinOptions.jvmTarget = sourceCompatibility
+            }
+        }
+    }
 }
